@@ -10,7 +10,7 @@ SQLScorer, Python tabanlı bir uygulama olup dosya seçme işlemleri için GUI k
 ### macOS Kurulumu
 
 Sırasıyla aşağıdaki komutları bilgisayarınızda çalıştırın :
-git clone https://github.com/osman-yahya/snaSQLScorer
+`git clone https://github.com/osman-yahya/snaSQLScorer`
 
 `cd snaSQLScorer`
 
@@ -24,7 +24,7 @@ git clone https://github.com/osman-yahya/snaSQLScorer
 
 ### Windows Kurulumu
 
-1. Git ile projeyi klonlayın:
+Sırasıyla aşağıdaki komutları bilgisayarınızda çalıştırın :
 `git clone https://github.com/osman-yahya/snaSQLScorer`
 
 `cd snaSQLScorer`
