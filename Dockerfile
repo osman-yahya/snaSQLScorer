@@ -1,12 +1,18 @@
-# Python 3.12 baz al (Tkinter desteği için 'slim' KULLANMA!)
-FROM python:3.12
+# Tkinter desteği olan tam Python imajı
+FROM python:3.9
 
-# requirements.txt'yi kopyala ve bağımlılıkları yükle
-WORKDIR /env
+# SQLite ve Tkinter bağımlılıkları
+RUN apt-get update && apt-get install -y \
+    sqlite3 \
+    python3-tk \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
 COPY requirements.txt .
-RUN apt-get update && apt-get install -y libsqlite3-dev
 RUN pip install --no-cache-dir -r requirements.txt
+
+# Uygulama dosyalarını kopyala (isteğe bağlı)
 COPY . .
-# Kullanıcıya "ben ortamı hazırladım, sen lokal kodu çalıştır" mesajı
-CMD echo "Python ortamı hazır! Şimdi şu komutu çalıştırın:" && \
-    echo "python3 ./app/main.py"
+
+# X11 forwarding için hazırlık (macOS)
+ENV DISPLAY=host.docker.internal:0
