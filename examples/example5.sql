@@ -1,0 +1,1 @@
+SELECT c.sirketIsim, COUNT(w.id) AS num_workers FROM companies c JOIN workload wl ON c.id = wl.company_id JOIN workers w ON w.id = wl.worker_id GROUP BY c.id;

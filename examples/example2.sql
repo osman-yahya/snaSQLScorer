@@ -1,0 +1,1 @@
+SELECT id, isim, soyisim, email, maas FROM workers WHERE isManager = 1;

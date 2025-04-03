@@ -1,0 +1,1 @@
+SELECT w.isim, w.soyisim, AVG(wl.hours_worked) AS avg_work_hours FROM workers w JOIN workload wl ON w.id = wl.worker_id WHERE w.isManager = 1 GROUP BY w.id;
