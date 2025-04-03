@@ -6,7 +6,7 @@ WORKDIR /env
 COPY requirements.txt .
 RUN apt-get update && apt-get install -y libsqlite3-dev
 RUN pip install --no-cache-dir -r requirements.txt
-
+COPY . .
 # Kullanıcıya "ben ortamı hazırladım, sen lokal kodu çalıştır" mesajı
 CMD echo "Python ortamı hazır! Şimdi şu komutu çalıştırın:" && \
     echo "python3 ./app/main.py"
