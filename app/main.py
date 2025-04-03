@@ -3,6 +3,7 @@ import time
 import tkinter as tk
 from tkinter import filedialog
 from backend import sqlSqorer
+import os
 
 # ANSI renk kodları
 RED = '\033[91m'
@@ -24,7 +25,7 @@ def exeute_main():
     print(f"\n\n{GREEN}SQLScorer SQLite kullanmakadır. Mevcut dizinde bulunan örnek database.db kullanmak istemiyorsanız 'new' yazınız. Mevcut ile devam etmek için ENTER'a basınız :{RESET}\n")
 
     choice1 = input(f"{YELLOW}? ->{RESET}")
-    choice2 = "database.db"
+    choice2 = os.path.join(os.path.dirname(__file__), '..', 'database.db')
     cpuflag = False
     if choice1 == "new":
         print(f"\n\n{GREEN}Mevcut dizinde bulunan yeni istenilen Database'in adını giriniz. (SQLite){RESET}\n")

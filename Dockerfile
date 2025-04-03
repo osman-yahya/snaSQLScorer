@@ -1,18 +1,11 @@
-# Tkinter desteği olan tam Python imajı
-FROM python:3.9
-
-# SQLite ve Tkinter bağımlılıkları
-RUN apt-get update && apt-get install -y \
-    sqlite3 \
-    python3-tk \
-    && rm -rf /var/lib/apt/lists/*
+FROM python:3.12
 
 WORKDIR /app
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
 
-# Uygulama dosyalarını kopyala (isteğe bağlı)
-COPY . .
+# Virtual environment oluştur ve bağımlılıkları yükle
+RUN python -m venv /opt/venv && \
+    /opt/venv/bin/pip install --no-cache-dir -r requirements.txt
 
-# X11 forwarding için hazırlık (macOS)
-ENV DISPLAY=host.docker.internal:0
+# Kullanıcıya virtual environment'i aktaracak komut
+CMD ["bash", "-c", "cp -r /opt/venv /app/venv && echo 'Virtual environment /app/venv oluşturuldu. Lokalde çalıştırmak için: source venv/bin/activate && python app/main.py'"]
