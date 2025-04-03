@@ -31,7 +31,7 @@ Sırasıyla aşağıdaki komutları bilgisayarınızda çalıştırın :
 
 `python -m venv gvenv`
 
-`gvenv/Scripts/Activate`
+`gvenv\Scripts\activate`
 
 `pip install --no-cache-dir -r requirements.txt`
 
